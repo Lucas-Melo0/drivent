@@ -3,7 +3,6 @@ import { TicketType } from "@prisma/client";
 import ticketsRepository from "@/repositories/tickets-repository";
 import { exclude } from "@/utils/prisma-utils";
 import enrollmentRepository from "@/repositories/enrollment-repository";
-import httpStatus, { BAD_REQUEST } from "http-status";
 
 async function getTicketType(): Promise<TicketType[]> {
   const result = await ticketsRepository.findTicketsType();
