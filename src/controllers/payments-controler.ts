@@ -6,12 +6,12 @@ import httpStatus from "http-status";
 
 export async function getPayment(req: AuthenticatedRequest, res: Response) {
   const { userId } = req;
-  const { tickedId } = req.query;
+  const { ticketId } = req.query;
 
-  if (!tickedId) return res.sendStatus(httpStatus.BAD_REQUEST);
+  if (!ticketId) return res.sendStatus(httpStatus.BAD_REQUEST);
 
   try {
-    const payment = await paymentsService.getPayment(Number(tickedId), userId);
+    const payment = await paymentsService.getPayment(Number(ticketId), userId);
     return res.status(httpStatus.OK).send(payment);
   } catch (error) {
     const { name } = error;
